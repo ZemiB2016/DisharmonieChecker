@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class MethodManager {
 	private int MAXNESTING;
+	private String Name;
 	private ArrayList<String> fieldList = new ArrayList<String>();
 
 	public int getMAXNESTING() {
@@ -20,6 +21,10 @@ public class MethodManager {
 
 	public void setUseField(String str){
 		fieldList.add(str);
+	}
+
+	public String getName(){
+		return Name;
 	}
 
 }

@@ -1,13 +1,13 @@
 package Manager;
 
-import java.util.Hashtable;
+import java.util.ArrayList;
 
 public class ClassManager {
-	private Hashtable<String, MethodManager> methodmanager_table = new Hashtable<String,MethodManager>();
+	private ArrayList<MethodManager> methodmanager_list = new ArrayList<MethodManager>();
 	private int ATFD;
 
-	public Hashtable<String, MethodManager> getMethodmanagerTable() {
-		return this.methodmanager_table;
+	public ArrayList<MethodManager> getMethodmanagerTable() {
+		return this.methodmanager_list;
 	}
 
 	public int getATFD() {
@@ -23,7 +23,6 @@ public class ClassManager {
 	}
 
 	public void SetMethodmanagerTable(String str,MethodManager methodmanager){
-		methodmanager_table.put(str, methodmanager);
+		methodmanager_list.add(methodmanager);
 	}
-
 }

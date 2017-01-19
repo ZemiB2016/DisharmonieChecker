@@ -138,7 +138,6 @@ public class ZemiBASTVisitor extends ASTVisitor {
 
 	@Override
 	public boolean visit(SimpleName node) {
-		//System.out.println("SimpleName: " + node.getIdentifier());
 		return super.visit(node);
 	}
 
@@ -354,7 +353,6 @@ public class ZemiBASTVisitor extends ASTVisitor {
 
 	@Override
 	public boolean visit(FieldAccess node) {
-		//testclass.getMethodmanagerTable().get(testclass.getMethodmanagerTable().size()-1).setUseField(node.getName().toString());
 		// TODO Auto-generated method stub
 		return super.visit(node);
 	}
@@ -440,8 +438,6 @@ public class ZemiBASTVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(MethodDeclaration node) {
 		// TODO Auto-generated method stub
-		System.out.println("Method : " + node.getName());
-		testclass.SetMethodmanagerTable(node.getName().toString(), new Manager.MethodManager());
 		return super.visit(node);
 	}
 
