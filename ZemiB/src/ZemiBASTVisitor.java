@@ -353,6 +353,7 @@ public class ZemiBASTVisitor extends ASTVisitor {
 
 	@Override
 	public boolean visit(FieldAccess node) {
+		testclass.getMethodmanagerTable().get(testclass.getMethodmanagerTable().size()-1).setUseField(node.getName().toString());
 		// TODO Auto-generated method stub
 		return super.visit(node);
 	}
@@ -366,12 +367,14 @@ public class ZemiBASTVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(ForStatement node) {
 		// TODO Auto-generated method stub
+		testclass.addNumOfLoop();
 		return super.visit(node);
 	}
 
 	@Override
 	public boolean visit(IfStatement node) {
 		// TODO Auto-generated method stub
+		testclass.addNumOfIf();
 		return super.visit(node);
 	}
 
@@ -438,12 +441,18 @@ public class ZemiBASTVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(MethodDeclaration node) {
 		// TODO Auto-generated method stub
+		Manager.MethodManager tempMethod = new Manager.MethodManager();
+		tempMethod.SetName(node.getName().toString());
+		testclass.SetMethodmanagerTable(tempMethod);
 		return super.visit(node);
 	}
 
 	@Override
 	public boolean visit(MethodInvocation node) {
 		// TODO Auto-generated method stub
+		if(node.getName().toString().startsWith("get") || node.getName().toString().startsWith("Get")){
+			testclass.addATFD();
+		}
 		return super.visit(node);
 	}
 
@@ -678,6 +687,7 @@ public class ZemiBASTVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(WhileStatement node) {
 		// TODO Auto-generated method stub
+		testclass.addNumOfLoop();
 		return super.visit(node);
 	}
 
@@ -687,4 +697,9 @@ public class ZemiBASTVisitor extends ASTVisitor {
 		return super.visit(node);
 	}
 
+	public void output(){
+		System.out.println("ATFD : " + testclass.getATFD());
+		System.out.println("TCC : " + testclass.TCC());
+		System.out.println("WMC : " + testclass.WMC());
+	}
 }

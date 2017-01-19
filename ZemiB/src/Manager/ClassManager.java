@@ -4,10 +4,24 @@ import java.util.ArrayList;
 
 public class ClassManager {
 	private ArrayList<MethodManager> methodmanager_list = new ArrayList<MethodManager>();
-	private int ATFD;
+	private int ATFD = 0;
+	private int numOfLoop = 0;
+	private int numOfIf = 0;
 
 	public ArrayList<MethodManager> getMethodmanagerTable() {
 		return this.methodmanager_list;
+	}
+
+	public void addNumOfLoop(){
+		numOfLoop++;
+	}
+
+	public void addNumOfIf(){
+		numOfIf++;
+	}
+
+	public void addATFD(){
+		ATFD++;
 	}
 
 	public int getATFD() {
@@ -15,14 +29,30 @@ public class ClassManager {
 	}
 
 	public int WMC() {
-		return 0;
+		return 1 + numOfLoop + numOfIf;
 	}
 
 	public int TCC() {
-		return 0;
+		int sumRelative;
+		int connectMethod = 0;
+		int n = methodmanager_list.size()-1;
+
+		sumRelative = n * (n-1) /2;
+
+		for(MethodManager obj1: methodmanager_list){
+			for(MethodManager obj2: methodmanager_list){
+				if(!obj1.getName().equals(obj2.getName())){
+					if(obj1.CheckConnect(obj2.getFieldList())){
+						connectMethod++;
+						break;
+					}
+				}
+			}
+		}
+		return connectMethod/sumRelative;
 	}
 
-	public void SetMethodmanagerTable(String str,MethodManager methodmanager){
+	public void SetMethodmanagerTable(MethodManager methodmanager){
 		methodmanager_list.add(methodmanager);
 	}
 }
