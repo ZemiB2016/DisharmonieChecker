@@ -103,6 +103,10 @@ import org.eclipse.jdt.core.dom.WildcardType;
 
 public class ZemiBASTVisitor extends ASTVisitor {
 
+	Manager.ProjectManager project = new Manager.ProjectManager();
+	Manager.PackageManager packageobj = new Manager.PackageManager();
+	Manager.ClassManager testclass = new Manager.ClassManager();
+
 	static public CompilationUnit createAST(final String file) {
 
 		try {
@@ -134,7 +138,6 @@ public class ZemiBASTVisitor extends ASTVisitor {
 
 	@Override
 	public boolean visit(SimpleName node) {
-		System.out.println("SimpleName: " + node.getIdentifier());
 		return super.visit(node);
 	}
 
