@@ -23,8 +23,29 @@ public class MethodManager {
 		fieldList.add(str);
 	}
 
+	public void SetName(String str){
+		Name = str;
+	}
+
 	public String getName(){
 		return Name;
+	}
+
+	public ArrayList<String> getFieldList(){
+		return fieldList;
+	}
+
+	public boolean CheckConnect(ArrayList<String> list){
+
+		for(String field: fieldList){
+			for(String str: list){
+				if(field.equals(str)){
+					return true;
+				}
+			}
+		}
+		return false;
+
 	}
 
 }

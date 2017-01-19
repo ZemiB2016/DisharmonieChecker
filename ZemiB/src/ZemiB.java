@@ -7,5 +7,6 @@ public class ZemiB {
 		final CompilationUnit unit = ZemiBASTVisitor.createAST(args[0]);
 		final ZemiBASTVisitor visitor = new ZemiBASTVisitor();
 		unit.accept(visitor);
+		visitor.output();
 	}
 }
