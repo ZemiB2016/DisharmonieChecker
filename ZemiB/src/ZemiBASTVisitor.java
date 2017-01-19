@@ -361,6 +361,7 @@ public class ZemiBASTVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(FieldDeclaration node) {
 		// TODO Auto-generated method stub
+		testclass.addNOAP();
 		return super.visit(node);
 	}
 
@@ -701,5 +702,7 @@ public class ZemiBASTVisitor extends ASTVisitor {
 		System.out.println("ATFD : " + testclass.getATFD());
 		System.out.println("TCC : " + testclass.TCC());
 		System.out.println("WMC : " + testclass.WMC());
+		System.out.println("NOAP : " + testclass.getNOAP());
+		System.out.println("NOAM : " + testclass.getNOAM());
 	}
 }

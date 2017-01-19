@@ -7,6 +7,8 @@ public class ClassManager {
 	private int ATFD = 0;
 	private int numOfLoop = 0;
 	private int numOfIf = 0;
+	private int numOfPublicAttributes = 0;
+	private int numOfAccessorMethod = 0;
 
 	public ArrayList<MethodManager> getMethodmanagerTable() {
 		return this.methodmanager_list;
@@ -30,6 +32,21 @@ public class ClassManager {
 
 	public int WMC() {
 		return 1 + numOfLoop + numOfIf;
+	}
+
+	public void addNOAP(){
+		numOfPublicAttributes++;
+	}
+	public int getNOAP(){
+		return this.numOfPublicAttributes;
+	}
+
+	public void addNOAM(){
+		numOfAccessorMethod++;
+	}
+
+	public int getNOAM(){
+		return this.numOfAccessorMethod;
 	}
 
 	public int TCC() {
