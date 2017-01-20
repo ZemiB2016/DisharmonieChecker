@@ -1,6 +1,7 @@
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
@@ -698,11 +699,13 @@ public class ZemiBASTVisitor extends ASTVisitor {
 		return super.visit(node);
 	}
 
-	public void output(){
-		System.out.println("ATFD : " + testclass.getATFD());
-		System.out.println("TCC : " + testclass.TCC());
-		System.out.println("WMC : " + testclass.WMC());
-		System.out.println("NOAP : " + testclass.getNOAP());
-		System.out.println("NOAM : " + testclass.getNOAM());
+	public Hashtable<String, Integer> output(){
+		Hashtable<String, Integer> data_table = new Hashtable<String, Integer>();
+		data_table.put("ATFD", new Integer(testclass.getATFD()));
+		data_table.put("TCC", new Integer(testclass.TCC()));
+		data_table.put("WMC", new Integer(testclass.WMC()));
+		data_table.put("NOAP", new Integer(testclass.getNOAP()));
+		data_table.put("NOAM", new Integer(testclass.getNOAM()));
+		return data_table;
 	}
 }

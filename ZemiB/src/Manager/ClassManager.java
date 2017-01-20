@@ -52,7 +52,7 @@ public class ClassManager {
 	public int TCC() {
 		int sumRelative;
 		int connectMethod = 0;
-		int n = methodmanager_list.size()-1;
+		int n = methodmanager_list.size();
 
 		sumRelative = n * (n-1) /2;
 
@@ -66,7 +66,11 @@ public class ClassManager {
 				}
 			}
 		}
-		return connectMethod/sumRelative;
+		if (sumRelative == 0) {
+			return 0;
+		}else{
+			return connectMethod/sumRelative;
+		}
 	}
 
 	public void SetMethodmanagerTable(MethodManager methodmanager){
